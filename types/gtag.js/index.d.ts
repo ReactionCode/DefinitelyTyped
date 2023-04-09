@@ -86,7 +86,7 @@ declare namespace Gtag {
     currency?: string | undefined;
     description?: string | undefined;
     fatal?: boolean | undefined;
-    items?: Item[] | undefined;
+    items?: Item[] | GAdsItem[] | undefined;
     method?: string | undefined;
     number?: string | undefined;
     promotions?: Promotion[] | undefined;
@@ -136,6 +136,32 @@ declare namespace Gtag {
     promotion_id?: string | undefined;
     promotion_name?: string | undefined;
     quantity?: number | undefined;
+  }
+
+/**
+ * Interface of an item object used in lists for this event.
+ *
+ * Reference:
+ * @see {@link https://support.google.com/google-ads/answer/7305793 Dynamic remarketing events and parameters}
+ */
+  interface GAdsItem {
+    id: string;
+    location_id?: string | undefined;
+    origin?: string | undefined;
+    destination?: string | undefined;
+    start_date?: string | undefined;
+    end_date?: string | undefined;
+    google_business_vertical?: 'retail' |
+        'education' |
+        'flights' |
+        'hotel_rental' |
+        'jobs' |
+        'local' |
+        'real_estate' |
+        'travel' |
+        'custom' |
+        undefined
+    ;
   }
 
   interface Promotion {
